@@ -1,0 +1,12 @@
+<p>
+ID: <%= user.id %><br/>
+Username: <%= user.username %><br/>
+Name: <%= user.name %><br/>
+
+<% if (forms) { %>
+	<% for(var i=0; i<forms.length; i++) {%>
+	   <a href = "/form/<%= forms[i].id %>  ">your form id <%= forms[i].id %> </a>
+	<% } %>
+<% } %>
+</p>
+<a href="/logout">Log out</a>

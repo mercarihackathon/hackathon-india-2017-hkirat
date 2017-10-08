@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="/js/jquery-2.1.3.min.js"></script>
+    <script src="/js/aframe-v0.5.0.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="/js/keyboard.js"></script>
+    <script src="/js/main.js"></script> 
+  </head>
+
+  <body>
+    <a-scene>
+      <!-- word 1-->
+      <a-camera position="0 0 0" wasd-controls-enabled="true" id = "cam"></a-camera>
+      <a-plane position="0.02 0 -4" rotation="-90 0 0" width="5.64" height="10.96" color="#261e1e"></a-plane>
+
+      <a-box width = ".6" height = ".6" depth=".6" position="-0 2.52 -2.66" rotation="0 0 0" color="#392e00"></a-box>
+      <a-box width = ".6" height = ".6" depth=".6" position="-0 2.52 -3.28" rotation="0 0 0" color="#6f5a00"></a-box>
+      <a-box width = ".6" height = ".6" depth=".6" position="-0 2.52 -3.90" rotation="0 0 0" color="#392e00"></a-box>
+      <a-box width = ".6" height = ".6" depth=".6" position="-0 2.52 -4.52" rotation="0 0 0" color="#6f5a00"></a-box>
+      <a-box width = ".6" height = ".6" depth=".6" position="-0 2.52 -6.48" rotation="0 0 0" color="#6f5a00"></a-box>
+      <!-- word 1-->
+
+
+      <!-- word 2-->
+      <a-plane position="0.02 0 -16.10" rotation="-90 0 0" width="5.64" height="10.96" color="#261e1e"></a-plane>
+      
+      <a-cylinder position="0.00 0.75 -12.64" radius="0.5" height="1.06" color="#00ce08"></a-cylinder>
+      <a-cylinder position="0.00 1.27 -12.64" radius="0.60" height="0.18" color="#00ce08"></a-cylinder>
+
+      <a-cylinder position="0.00 0.75 -18.34" radius="0.5" height="1.06" color="#00ce08"></a-cylinder>
+      <a-cylinder position="0.00 1.27 -18.32" radius="0.60" height="0.18" color="#00ce08"></a-cylinder>
+      <a-box width = ".4" height = ".6" depth=".6" position="-0 0.44 -14.52" rotation="0 0 0" color="#6f5a00">
+        <a-animation attribute="position"
+                     dur="3000"
+                     direction="alternate"
+                     from="-0 0.44 -13.36"
+                     to="-0 0.44 -17.44"
+                     repeat="indefinite"
+                     easing="linear"></a-animation>
+      </a-box>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>

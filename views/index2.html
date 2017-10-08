@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/8a76a783c2ba3d4779e92a892cc31fb0757fa4df/dist/aframe-extras.physics.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/jquery-2.1.3.min.js"></script>
+<script src="/js/keyboard.js"></script>
+<a-scene antialias="true">
+  <!-- Camera -->
+  <a-entity position="0 0 0">
+    <a-camera look-controls wasd-controls id="cam"></a-camera>
+  </a-entity>
+  
+  <a-entity id='boxContainer' position="-1 1 -3">
+    <a-entity id="boxes" position="0 0.2 0"></a-entity>
+    <a-box id='platform' width='1' depth='1' height='0.1' color='grey' static-body></a-box>
+  </a-entity>
+  
+  <a-entity id='sphereContainer' position="1 1 -3">
+    <a-entity id="spheres" position="0 0.2 0"></a-entity>
+    <a-box id='platform' width='1' depth='1' height='0.1' color='grey' static-body></a-box>
+  </a-entity>
+  
+  <a-plane rotation="-90 0 0" position='0 0 -1' width="4" height="4" color="black" static-body></a-plane>
+  <a-sky color="white"></a-sky>
+</a-scene>
+
+<script>
+  var colorScale = d3.scaleSequential(d3.interpolatePlasma);
+  var dataset = [];
+
+  for (var i = 10; i > 0; i--) {
+    dataset.push(i);
+  }
+
+  var spheres = d3.select('#spheres');
+  spheres.selectAll('a-sphere')
+         .data(dataset)
+         .enter()
+         .append('a-sphere')
+         .attr('radius', '0.1')
+         .attr('color', function(d, i) {
+           return colorScale(i / 10);
+         })
+         .attr('position', function(d, i) {
+           return '0 ' + (i * 0.1) + ' 0';
+         })
+         .attr('dynamic-body', '');
+
+  var boxes = d3.select('#boxes');
+  boxes.selectAll('a-box')
+       .data(dataset)
+       .enter()
+       .append('a-box')
+       .attr('height', '0.1')
+       .attr('width', function(d, i) {
+         return String(0.1 * d);
+       })
+       .attr('depth', function(d, i) {
+         return String(0.1 * d);
+       })
+       .attr('color', function(d, i) {
+         return colorScale(i / 10);
+       })
+       .attr('position', function(d, i) {
+         return '0 ' + (i * 0.1) + ' 0';
+       })
+       .attr('dynamic-body', '');
+</script>

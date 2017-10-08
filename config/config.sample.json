@@ -1,0 +1,9 @@
+{
+  "host"     : "localhost",
+  "user"     : "",
+  "password" : "",
+  "database" : "",	
+  "base_url" : "",
+  "key"		 : "",
+  "secret"   : ""
+}

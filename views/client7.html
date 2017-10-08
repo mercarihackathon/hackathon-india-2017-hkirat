@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/jquery-2.1.3.min.js"></script>
+<script src="/js/game.js"></script>
+<script src = "/js/physics.js"></script>
+<a-scene>
+  <a-assets>
+  	 <img id="sky" src="/star.jpg">
+  </a-assets>
+  <a-sky src="#sky"></a-sky>
+  <a-entity position="0 0 0">
+    <a-camera look-controls wasd-controls id="cam"></a-camera>
+  	<a-sphere id = "sphere1" position="0 1.25 -5" radius="1.25" "  color="red"></a-sphere>
+  	<a-sphere id = "earth" src="/earth.jpg" position="-20 -9 -5" radius="10"></a-sphere>
+  	<a-sphere id = "sphere2" position="0 1.25 -5" radius="1.25" ></a-sphere>
+  	<a-sphere id = "moon" src="/moon.jpg" position="0 -9 -10" radius="6" ></a-sphere>
+  	<a-sphere id = "sphere3" position="0 1.25 -5" radius="1.25" color=""></a-sphere>
+  	<a-sphere id = "Jupiter" src="/Jupiter.jpg" position="20 -9 -5" radius="10"></a-sphere>
+  </a-entity>
+
+</a-scene>
